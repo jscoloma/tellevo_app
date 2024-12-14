@@ -1,0 +1,33 @@
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary"
+  >
+    <ion-title>Localización</ion-title>
+    <input type="text" id="autocomplete" placeholder="Buscar dirección">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="map" style="height: 400px;"></div>
+  <div id="trayecto"></div>
+
+  <div class="ion-padding">
+    <h2 class="menu-title">Opciones</h2>
+    
+    <!-- Selector para preguntar cuántos pasajeros -->
+    <ion-item>
+      <ion-label position="stacked">¿Cuántos pasajeros van?</ion-label>
+      <ion-select [(ngModel)]="numeroPasajeros">
+        <ion-select-option value="1">1</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Botón para confirmar -->
+    <ion-button expand="full" (click)="confirmarViaje()">Confirmar</ion-button>
+
+  </div>
+</ion-content>

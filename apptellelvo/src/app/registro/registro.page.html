@@ -1,0 +1,61 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="logo-container">
+    <img #logo src="assets/icon/tellevo.png" alt="Logotipo de la Empresa" class="logo" />
+    <p #text class="text"></p>
+  </div>
+  <form [formGroup]="formularioRegistro" (ngSubmit)="onRegister()">
+    <ion-item>
+      <ion-label position="stacked">Usuario</ion-label>
+      <ion-input formControlName="username" placeholder="Ingresa Usuario" maxlength="8"></ion-input>
+    </ion-item>
+
+    <div *ngIf="formularioRegistro.get('username')?.invalid && formularioRegistro.get('username')?.touched">
+      Error: Usuario es requerido.
+    </div>
+
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input formControlName="email" type="email" placeholder="Ingresa Email"></ion-input>
+    </ion-item>
+
+    <div *ngIf="formularioRegistro.get('email')?.invalid && formularioRegistro.get('email')?.touched">
+      Error: Email es requerido.
+    </div>
+
+    <ion-item>
+      <ion-label position="stacked">Contraseña</ion-label>
+      <ion-input formControlName="password" type="password" placeholder="****" maxlength="4"></ion-input>
+    </ion-item>
+
+    <div *ngIf="formularioRegistro.get('password')?.invalid && formularioRegistro.get('password')?.touched">
+      Error: Contraseña debe tener 4 caracteres.
+    </div>
+
+    <ion-item>
+      <ion-label>Tipo de Usuario</ion-label>
+      <ion-segment formControlName="userType">
+        <ion-segment-button value="pasajero">
+          Pasajero
+        </ion-segment-button>
+        <ion-segment-button value="conductor">
+          Conductor
+        </ion-segment-button>
+      </ion-segment>
+    </ion-item>
+
+    <div *ngIf="formularioRegistro.get('userType')?.invalid && formularioRegistro.get('userType')?.touched">
+      Error: Debes seleccionar un tipo de usuario.
+    </div>
+
+    <ion-button (click)="guardar()">registrarse
+
+    </ion-button>
+    <ion-button expand="block" type="button" (click)="goToLogin()">Salir</ion-button>
+  </form>
+</ion-content>

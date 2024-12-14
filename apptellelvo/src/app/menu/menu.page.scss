@@ -1,0 +1,31 @@
+.menu-title {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    text-align: center;
+    color: #4a4a4a; /* Cambia el color según tu preferencia */
+  }
+  
+  .welcome-message {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 10px 0;
+    color: #666; /* Color gris claro */
+  }
+  
+  .profile-image {
+    width: 100px; /* Ajusta según el tamaño deseado */
+    height: auto; /* Mantiene la proporción */
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    display: block; /* Centra la imagen */
+    margin: 10px auto; /* Margen superior e inferior de 10px, centrado */
+  }
+  
+  ion-card {
+    margin: 15px 0; /* Espaciado alrededor de la tarjeta */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra para la tarjeta */
+  }
+  
+  ion-button {
+    margin-top: 10px; /* Espaciado superior para el botón */
+  }
+  

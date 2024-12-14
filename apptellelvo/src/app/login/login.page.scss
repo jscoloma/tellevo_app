@@ -1,0 +1,36 @@
+/* Estilo para el botón de Ingresar */
+ion-button[type="submit"] {
+  --background: #3880ff;
+  --border-radius: 8px;
+  --color: white;
+  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  transition: background 0.3s ease;
+}
+
+ion-button[type="submit"]:hover {
+  --background: #3e84f1;
+}
+
+/* Estilo para el botón de Registro */
+ion-button[color="secondary"] {
+  --background: #ff4081;
+  --color: white;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  transition: background 0.3s ease;
+  width: 100%; /* Ocupa el ancho completo */
+}
+
+ion-button[color="secondary"]:hover {
+  --background: #ff2366;
+}
+
+/* Estilo para cuando el botón de registro es más pequeño en pantallas grandes */
+@media (min-width: 768px) {
+  ion-button[color="secondary"] {
+    width: auto; /* En pantallas más grandes, no ocupa todo el ancho */
+    margin-top: 15px; /* Espacio ajustado */
+  }
+}

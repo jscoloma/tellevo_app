@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Contenedor del logotipo -->
+  <div class="logo-container">
+    <img #logo src="assets/icon/tellevo.png" alt="Logotipo de la Empresa" class="logo" />
+    <p #text class="text"></p>
+  </div>
+
+  <!-- Formulario de Login -->
+  <form [formGroup]="formularioLogin" (ngSubmit)="ingresar()">
+    <!-- Campo Usuario -->
+    <ion-item>
+      <ion-label position="stacked">Usuario</ion-label>
+      <ion-input
+        formControlName="username"
+        placeholder="Ingresa Usuario"
+        maxlength="8"
+        required
+      ></ion-input>
+    </ion-item>
+    <!-- Mensaje de Error Usuario -->
+    <ion-text color="danger" *ngIf="formularioLogin.get('username')?.invalid && formularioLogin.get('username')?.touched">
+      <p>El nombre de usuario debe tener al menos 3 caracteres.</p>
+    </ion-text>
+
+    <!-- Campo Contraseña -->
+    <ion-item>
+      <ion-label position="stacked">Contraseña</ion-label>
+      <ion-input
+        formControlName="password"
+        type="password"
+        placeholder="****"
+        maxlength="4"
+        required
+      ></ion-input>
+    </ion-item>
+    <!-- Mensaje de Error Contraseña -->
+    <ion-text color="danger" *ngIf="formularioLogin.get('password')?.invalid && formularioLogin.get('password')?.touched">
+      <p>La contraseña debe tener exactamente 4 dígitos.</p>
+    </ion-text>
+
+    <!-- Botón de Ingresar -->
+    <ion-button expand="full" type="submit" (click)="ingresar()">Ingresar</ion-button>
+
+  </form>
+
+  <!-- Botón de Registro -->
+  <ion-button expand="block" color="secondary" (click)="goToRegister()">Registrarse</ion-button>
+</ion-content>

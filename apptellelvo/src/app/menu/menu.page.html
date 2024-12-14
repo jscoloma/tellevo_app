@@ -1,0 +1,70 @@
+<ion-menu side="start" menuId="first" contentId="main-content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <h2 class="menu-title">Opciones</h2>
+    <ion-list>
+      <ion-menu-toggle>
+        <ion-item routerLink="/home" routerLinkActive="active">
+          <ion-icon slot="start" name="home"></ion-icon>
+          <ion-label>datos personales</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+     
+
+      <ion-menu-toggle>
+        <ion-item routerLink="/acerca" routerLinkActive="active">
+          <ion-icon slot="start" name="help-circle-sharp"></ion-icon>
+          <ion-label>Acerca</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle>
+        <ion-item routerLink="/login" routerLinkActive="active">
+          <ion-icon slot="start" name="log-out-outline"></ion-icon>
+          <ion-label>Salir</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      
+      
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>tellevoapp - {{ usuario?.nombre || 'conductor' }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <p class="welcome-message">app para ayudar a estudiantes en el regreso a su hogar</p>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Bienvenido, {{ usuario?.nombre || 'conductor' }}</ion-card-title>
+        <ion-card-subtitle>adonde vamos?</ion-card-subtitle>
+      </ion-card-header>
+
+      <img #logo src="assets/icon/tellevo.png" alt="Logotipo de la Empresa" class="logo" />
+
+
+      <ion-card-content>
+        <p>Aquí puedes seleccionar tu destino</p>
+        <ion-button expand="full" color="secondary" routerLink="/localizacion">
+          Mapa
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+   
+    
+  </ion-content>
+</div>

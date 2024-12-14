@@ -1,0 +1,81 @@
+<ion-menu side="start" menuId="first" contentId="main-content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    Este es el menú de contenido.
+    <ion-list>
+      <ion-menu-toggle>
+        <ion-item routerLink="/home" routerLinkActive="active">
+          <ion-icon slot="start" name="home"></ion-icon>
+          <ion-label>Datos personales</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle>
+        <ion-item routerLink="/acerca" routerLinkActive="active">
+          <ion-icon slot="start" name="help-circle-sharp"></ion-icon>
+          <ion-label>Acerca</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle>
+        <ion-item routerLink="/login" routerLinkActive="active">
+          <ion-icon slot="start" name="log-out-outline"></ion-icon>
+          <ion-label>Salir</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Menu App - {{ usuario?.nombre || 'pasajero' }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <p>app para ayudar a estudiantes en el regreso a su hogar</p>
+    
+    <!-- Card de bienvenida -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Bienvenido, {{ usuario?.nombre || 'pasajero' }}</ion-card-title>
+        <ion-card-subtitle>¿Adónde vamos?</ion-card-subtitle>
+      </ion-card-header>
+      <img src="assets/icon/tellevo.png" alt="Logotipo de la Empresa" class="logo" />
+      <ion-img src="assets/images/usuario.jpg" alt="Foto de perfil" slot="header"></ion-img>
+
+      <ion-card-content>
+        <p>Aquí puedes seleccionar tu destino</p>
+        
+        <!-- Formulario para seleccionar comuna y número de pasajeros -->
+        <ion-item>
+          <ion-label position="stacked">Selecciona la Comuna</ion-label>
+          <ion-select [(ngModel)]="selectedComuna" placeholder="Elige una comuna">
+            <ion-select-option value="la pintana">la pintana</ion-select-option>
+            <ion-select-option value="puente alto">puente alto</ion-select-option>
+            <ion-select-option value="la florida">la florida</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Número de Pasajeros</ion-label>
+          <ion-input [(ngModel)]="numPasajeros" type="number" placeholder="Ingresa el número de pasajeros"></ion-input>
+        </ion-item>
+
+        <ion-button expand="full" (click)="realizarAccion()">
+          Realizar Acción
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</div>
